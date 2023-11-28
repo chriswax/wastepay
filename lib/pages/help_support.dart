@@ -5,14 +5,14 @@ import '../widgets/custom_button.dart';
 import '../widgets/text_fields.dart';
 import 'verify_screen.dart';
 
-class VerifyPhoneScreen extends StatefulWidget {
-  const VerifyPhoneScreen({super.key});
+class HelpSupport extends StatefulWidget {
+  const HelpSupport({super.key});
 
   @override
-  State<VerifyPhoneScreen> createState() => _VerifyPhoneScreenState();
+  State<HelpSupport> createState() => _HelpSupportState();
 }
 
-class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
+class _HelpSupportState extends State<HelpSupport> {
   //create controllers
   final TextEditingController phoneController = TextEditingController();
 
@@ -41,8 +41,8 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
                   child: Ink(
                     decoration: const ShapeDecoration(
                       shape: CircleBorder(),
-                      color: AppColor
-                          .primaryBackground, // Background color of the rounded icon
+                      color:
+                          Colors.black, // Background color of the rounded icon
                     ),
                     child: IconButton(
                       icon: const Icon(Icons.close,

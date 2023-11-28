@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_bank_ui/pages/card_payment.dart';
 import 'package:mobile_bank_ui/pages/signup_screen.dart';
 import 'package:mobile_bank_ui/widgets/color.dart';
 
@@ -110,9 +111,16 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
+                      // Navigator.of(context).push(
+                      //   MaterialPageRoute(
+                      //     builder: (context) => const SignupScreen(),
+                      //   ),
+                      // );
+
+                      //for testing individual pages
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => const SignupScreen(),
+                          builder: (context) => const CardPayment(),
                         ),
                       );
                     },

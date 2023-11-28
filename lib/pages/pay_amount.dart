@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_bank_ui/pages/mode_of_payment.dart';
 import 'package:mobile_bank_ui/pages/signup_screen.dart';
 import '../widgets/color.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/text_fields.dart';
 import 'verify_screen.dart';
 
-class VerifyPhoneScreen extends StatefulWidget {
-  const VerifyPhoneScreen({super.key});
+class PayAmount extends StatefulWidget {
+  const PayAmount({super.key});
 
   @override
-  State<VerifyPhoneScreen> createState() => _VerifyPhoneScreenState();
+  State<PayAmount> createState() => _PayAmountState();
 }
 
-class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
+class _PayAmountState extends State<PayAmount> {
   //create controllers
-  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController amountController = TextEditingController();
 
   @override
   void dispose() {
     super.dispose();
-    phoneController.dispose();
+    amountController.dispose();
   }
 
   @override
@@ -37,7 +38,7 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Align(
-                  alignment: Alignment.topRight,
+                  alignment: Alignment.topLeft,
                   child: Ink(
                     decoration: const ShapeDecoration(
                       shape: CircleBorder(),
@@ -45,7 +46,7 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
                           .primaryBackground, // Background color of the rounded icon
                     ),
                     child: IconButton(
-                      icon: const Icon(Icons.close,
+                      icon: const Icon(Icons.arrow_back_ios_new,
                           color: Colors.white), // Icon color
                       onPressed: () {
                         Navigator.of(context).push(
@@ -61,7 +62,7 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  "Create Account",
+                  "Enter Amount",
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 30,
@@ -72,14 +73,38 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
               const SizedBox(
                 height: 5,
               ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  "Enter your phone number to receive code34",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: RichText(
+                  text: const TextSpan(
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: "You owe ",
+                      ),
+                      TextSpan(
+                        text: "N69,000.00",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextSpan(
+                        text: " for the month at ",
+                      ),
+                      TextSpan(
+                        text: "December 23",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextSpan(
+                        text:
+                            ", how much will you like to pay for this service?",
+                      ),
+                    ],
                   ),
                   textAlign: TextAlign.left,
                 ),
@@ -88,20 +113,20 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
                 height: 24,
               ),
               TextFieldInput(
-                  textEditingController: phoneController,
-                  hintText: 'Phone number',
+                  textEditingController: amountController,
+                  hintText: '00,0000.00',
                   textInputType: TextInputType.number),
               const SizedBox(
                 height: 30,
               ),
               CustomizedButton(
-                buttonText: 'Send code',
+                buttonText: 'Continue',
                 buttonColor: AppColor.primaryBackground,
                 textColor: Colors.white,
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const VerifyScreen(),
+                      builder: (context) => const ModePayment(),
                     ),
                   );
                 },

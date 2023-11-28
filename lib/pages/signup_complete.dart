@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_bank_ui/pages/dashboard.dart';
+import 'package:mobile_bank_ui/pages/setup_property.dart';
 import 'package:mobile_bank_ui/pages/verify_phone_screen.dart';
 import '../widgets/color.dart';
 import '../widgets/custom_button.dart';
@@ -102,7 +104,7 @@ class _SignupCompleteState extends State<SignupComplete> {
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const VerifyPhoneScreen(),
+                      builder: (context) => const SetupProperty(),
                     ),
                   );
                 },

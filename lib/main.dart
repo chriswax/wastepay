@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_bank_ui/pages/login_screen.dart';
 import 'package:mobile_bank_ui/widgets/color.dart';
-
-import 'pages/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +9,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,6 +16,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: AppColor.scaffoldBackground,
       ),
+      //home: const LoginScreen(),
+
       home: const LoginScreen(),
     );
   }

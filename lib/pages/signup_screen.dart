@@ -73,7 +73,8 @@ class _SignupScreenState extends State<SignupScreen> {
                 child: Ink(
                   decoration: const ShapeDecoration(
                     shape: CircleBorder(),
-                    color: Colors.black, // Background color of the rounded icon
+                    color: AppColor
+                        .primaryBackground, // Background color of the rounded icon
                   ),
                   child: IconButton(
                     icon: const Icon(Icons.arrow_back_ios_new,

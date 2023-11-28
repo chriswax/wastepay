@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_bank_ui/pages/setup_property_confirm.dart';
 import 'package:mobile_bank_ui/pages/signup_screen.dart';
 import '../widgets/color.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/text_fields.dart';
 import 'verify_screen.dart';
 
-class VerifyPhoneScreen extends StatefulWidget {
-  const VerifyPhoneScreen({super.key});
+class SetupProperty extends StatefulWidget {
+  const SetupProperty({super.key});
 
   @override
-  State<VerifyPhoneScreen> createState() => _VerifyPhoneScreenState();
+  State<SetupProperty> createState() => _SetupPropertyState();
 }
 
-class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
+class _SetupPropertyState extends State<SetupProperty> {
   //create controllers
   final TextEditingController phoneController = TextEditingController();
 
@@ -24,6 +25,7 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -37,7 +39,7 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Align(
-                  alignment: Alignment.topRight,
+                  alignment: Alignment.topLeft,
                   child: Ink(
                     decoration: const ShapeDecoration(
                       shape: CircleBorder(),
@@ -45,8 +47,10 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
                           .primaryBackground, // Background color of the rounded icon
                     ),
                     child: IconButton(
-                      icon: const Icon(Icons.close,
-                          color: Colors.white), // Icon color
+                      icon: const Icon(
+                        Icons.arrow_back_ios_new,
+                        color: Colors.white,
+                      ), // Icon color
                       onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
@@ -61,7 +65,7 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  "Create Account",
+                  "Set Up Your Property Account",
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 30,
@@ -75,10 +79,10 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  "Enter your phone number to receive code34",
+                  "Enter your property address to set up your account",
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 16,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.left,
@@ -89,19 +93,36 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
               ),
               TextFieldInput(
                   textEditingController: phoneController,
-                  hintText: 'Phone number',
+                  hintText: 'property address',
                   textInputType: TextInputType.number),
               const SizedBox(
-                height: 30,
+                height: 25,
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    "what is property address? ",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: height / 4,
               ),
               CustomizedButton(
-                buttonText: 'Send code',
+                buttonText: 'Create account',
                 buttonColor: AppColor.primaryBackground,
                 textColor: Colors.white,
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const VerifyScreen(),
+                      builder: (context) => const SetupPropertyConfirm(),
                     ),
                   );
                 },
